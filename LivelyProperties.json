@@ -1,0 +1,82 @@
+{
+  "gamesLabel": {
+    "type": "label",
+    "value": "Games"
+  },
+  "controllerMode": {
+    "type": "checkbox",
+    "value": false,
+    "text": "Game mode",
+    "help": "F8 also switches between the music player and game selection."
+  },
+  "backToGameSelection": {
+    "type": "button",
+    "value": "back",
+    "text": "Exit game to game list",
+    "help": "Stops the running game and returns to its game list."
+  },
+  "rescanShortcut": {
+    "type": "dropdown",
+    "value": 0,
+    "text": "Rescan hotkey",
+    "items": ["Numpad *", "F6", "F7", "F9", "R", "Disabled"]
+  },
+  "controlsHelp": {
+    "type": "label",
+    "value": "Numpad *: import + rescan · F8: game mode · Arrows: navigate · Enter / Tab: select · Esc: back"
+  },
+  "inputHelp": {
+    "type": "label",
+    "value": "For background controls, set Lively Settings > Wallpaper > Interaction > Wallpaper Input to Keyboard."
+  },
+  "gameVolume": {
+    "max": 100,
+    "min": 0,
+    "step": 1,
+    "text": "Game volume",
+    "type": "slider",
+    "value": 65
+  },
+  "crtBlur": {
+    "max": 4,
+    "min": 0,
+    "step": 0.25,
+    "text": "CRT game softness",
+    "type": "slider",
+    "value": 1,
+    "help": "Softens emulator pixels for large modern displays while keeping menus readable."
+  },
+  "cameraLabel": {
+    "type": "label",
+    "value": "TV view"
+  },
+  "xAngleCamera": {
+    "max": 60,
+    "min": -60,
+    "step": 1,
+    "text": "Vertical",
+    "type": "slider",
+    "value": 10
+  },
+  "yAngleCamera": {
+    "max": 120,
+    "min": -120,
+    "step": 1,
+    "text": "Horizontal",
+    "type": "slider",
+    "value": 0
+  },
+  "zoomCamera": {
+    "max": 10,
+    "min": -10,
+    "step": 0.1,
+    "text": "Zoom",
+    "type": "slider",
+    "value": 0
+  },
+  "30fps": {
+    "type": "checkbox",
+    "value": true,
+    "text": "30 FPS room animation"
+  }
+}

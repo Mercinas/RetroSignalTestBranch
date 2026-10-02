@@ -1,0 +1,111 @@
+{
+  "name": "retrosignal-wallpaper",
+  "version": "1.0.0-rc.5",
+  "description": "RetroSignal Manager and optional Lively wallpaper playtest.",
+  "author": "RetroSignal contributors",
+  "private": true,
+  "type": "module",
+  "main": "manager/electron-main.mjs",
+  "scripts": {
+    "manager": "electron manager/electron-main.mjs",
+    "manager:package": "electron-builder --win nsis --x64",
+    "test": "node --test",
+    "check": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-release.ps1",
+    "package:wallpaper": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/package-release.ps1",
+    "package": "npm run manager:package && npm run package:wallpaper && powershell -NoProfile -ExecutionPolicy Bypass -File tools/package-distribution.ps1"
+  },
+  "build": {
+    "appId": "com.mercinas.retrosignal-manager",
+    "productName": "RetroSignal Manager",
+    "directories": {
+      "output": "dist/RetroSignal-Manager"
+    },
+    "files": [
+      "manager/**/*",
+      "!manager/controller-layouts/*.test.js",
+      "!manager/garden-storage.mjs",
+      "!manager/play-credit.mjs",
+      "!manager/play-credit-store.mjs",
+      "!manager/running-session-union.mjs",
+      "js/systems.js",
+      "LivelyInfo.json",
+      "package.json",
+      "LICENSE",
+      "LICENSES/**/*",
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "asar": true,
+    "extraResources": [
+      {
+        "from": ".",
+        "to": "player-runtime",
+        "filter": [
+          "index.html",
+          "emulator-frame.html",
+          "LivelyInfo.json",
+          "LivelyProperties.json",
+          "docs/screenshots/selector.png",
+          "VERSION",
+          "js/**/*",
+          "models/**/*",
+          "textures/**/*",
+          "emulatorjs/*.js",
+          "emulatorjs/*.css",
+          "emulatorjs/*.json",
+          "emulatorjs/*.txt",
+          "emulatorjs/src/**/*",
+          "emulatorjs/compression/**/*",
+          "emulatorjs/localization/*.json",
+          "emulatorjs/cores/RELEASE_FILES.txt",
+          "emulatorjs/cores/reports/*.json",
+          "emulatorjs/cores/fceumm-legacy-wasm.data",
+          "emulatorjs/cores/gambatte-legacy-wasm.data",
+          "emulatorjs/cores/mgba-legacy-wasm.data",
+          "emulatorjs/cores/mupen64plus_next-legacy-wasm.data",
+          "emulatorjs/cores/mupen64plus_next-wasm.data",
+          "emulatorjs/cores/pcsx_rearmed-legacy-wasm.data",
+          "emulatorjs/cores/pcsx_rearmed-wasm.data",
+          "emulatorjs/cores/snes9x-legacy-wasm.data",
+          "emulatorjs/cores/stella2014-legacy-wasm.data",
+          "emulatorjs/cores/a5200-legacy-wasm.data",
+          "emulatorjs/cores/prosystem-legacy-wasm.data",
+          "emulatorjs/cores/smsplus-legacy-wasm.data",
+          "emulatorjs/cores/genesis_plus_gx-legacy-wasm.data",
+          "emulatorjs/cores/mednafen_pce-legacy-wasm.data",
+          "emulatorjs/cores/same_cdi-legacy-wasm.data",
+          "emulatorjs/cores/virtualjaguar-legacy-wasm.data",
+          "emulatorjs/cores/picodrive-legacy-wasm.data",
+          "emulatorjs/cores/yabause-legacy-wasm.data",
+          "emulatorjs/cores/beetle_vb-legacy-wasm.data",
+          "emulatorjs/cores/handy-legacy-wasm.data",
+          "LICENSE",
+          "LICENSES/**/*",
+          "THIRD_PARTY_NOTICES.md"
+        ]
+      }
+    ],
+    "win": {
+      "icon": "manager/assets/retrosignal-manager.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "RetroSignal Manager",
+      "artifactName": "RetroSignal-Manager-Setup-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}

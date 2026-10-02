@@ -1,0 +1,15 @@
+RETROSIGNAL — START HERE
+
+1. Unzip the download.
+2. Run "RetroSignal Manager Setup.exe". A CRT TV shortcut is created on your Desktop.
+3. Lively is optional. The Manager and standalone player work without it.
+4. Put your legally obtained ROMs and BIOS files together in any folder you choose.
+5. Open RetroSignal Manager, choose that one folder, and click Import games.
+6. Select Open emulator player for standalone play. Opening the Manager does not start Lively.
+7. For wallpaper mode, use Open Lively separately and add "RetroSignal Wallpaper" before importing games into that library. Press F8 for game mode; use arrows, Enter or Tab, and Esc. Numpad * rescans; Customize > Rescan hotkey changes it.
+
+EmulatorJS and its supported cores are included; no separate emulator is needed. Games and required BIOS files are not included.
+The Manager uses a paired wallpaper library when available, otherwise its private player library. Do not browse inside Lively's hidden data folders.
+
+PlayStation 1 BIOS: a normally named 512 KB file such as SCPH5501.bin can sit beside your ROMs.
+The Manager scans all subfolders, skips duplicates, and reports unsupported or unclear files.

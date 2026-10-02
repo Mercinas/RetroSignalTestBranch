@@ -1,0 +1,14 @@
+RetroSignal bundles two cores with non-commercial distribution terms:
+
+- Genesis Plus GX: Redistribution may not be sold or used in a commercial
+  product or activity. Its complete upstream license, including notices for
+  bundled components, is at
+  https://github.com/libretro/Genesis-Plus-GX/blob/master/LICENSE.txt
+- PicoDrive: Redistribution may not be sold or used in a commercial product or
+  activity. Its complete upstream COPYING file is at
+  https://github.com/notaz/picodrive/blob/master/COPYING
+
+These terms apply to the bundled cores. Do not distribute a RetroSignal package
+containing either core commercially without separate permission from every
+applicable rights holder. This notice is supplementary; it does not replace the
+upstream license texts.

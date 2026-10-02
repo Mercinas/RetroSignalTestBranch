@@ -1,0 +1,30 @@
+{
+  "n64": [],
+  "gb": [],
+  "gba": [],
+  "atari2600": [],
+  "atari5200": [],
+  "nes": [],
+  "mastersystem": [],
+  "atari7800": [],
+  "tg16": [],
+  "genesis": [],
+  "tgcd": [],
+  "snes": [],
+  "cdi": [],
+  "segacd": [],
+  "jaguar": [],
+  "sega32x": [],
+  "saturn": [],
+  "psx": [],
+  "lynx": [],
+  "gamegear": [],
+  "virtualboy": [],
+  "bios": {
+    "tgcd": "",
+    "cdi": "",
+    "segacd": "",
+    "saturn": "",
+    "psx": ""
+  }
+}

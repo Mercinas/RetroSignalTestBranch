@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>RetroSignal</title>
+    <style>
+      @property --gradientColor1 {
+        syntax: "<color>";
+        initial-value: #2d2d2d;
+        inherits: false;
+      }
+
+      @property --gradientColor2 {
+        syntax: "<color>";
+        initial-value: #000000;
+        inherits: false;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: radial-gradient(var(--gradientColor1), var(--gradientColor2));
+        transition: --gradientColor1 3s, --gradientColor2 3s;
+      }
+
+      #container,
+      #container canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #container {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background: radial-gradient(var(--gradientColor1), var(--gradientColor2));
+        transition: --gradientColor1 3s, --gradientColor2 3s;
+      }
+
+      #emulator-shell {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 640px;
+        height: 480px;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: #080603;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      #emulator-shell iframe {
+        display: block;
+        border: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      body.standalone-player {
+        background: #050403;
+      }
+
+      body.standalone-player #container {
+        display: grid;
+        place-items: center;
+        background: #050403;
+      }
+
+      #standalone-game-screen {
+        width: min(100vw, calc(100vh * 4 / 3));
+        height: min(100vh, calc(100vw * 3 / 4));
+        image-rendering: auto;
+      }
+    </style>
+    <script async src="js/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./js/threejs/three.module.js",
+          "three/addons/": "./js/threejs/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body tabindex="-1">
+    <div id="container"></div>
+    <div id="emulator-shell" aria-hidden="true">
+    </div>
+    <script src="js/color-thief.umd.js"></script>
+    <script src="roms/library.local.js"></script>
+    <script type="module" src="js/retrosignal.js?version=19"></script>
+  </body>
+</html>

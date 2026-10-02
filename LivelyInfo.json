@@ -1,0 +1,17 @@
+{
+  "AppVersion": "2.3.0.0",
+  "Title": "RetroSignal",
+  "Thumbnail": "docs/screenshots/selector.png",
+  "Preview": "docs/screenshots/selector.png",
+  "Desc": "An animated music room with 21 local game systems, durable saves, and a CRT game library.",
+  "Author": "RetroSignal contributors",
+  "License": "MIT scene with separately licensed emulator components",
+  "Contact": "",
+  "Type": 1,
+  "FileName": "index.html",
+  "Arguments": "--audio --system-nowplaying --pause-event true",
+  "IsAbsolutePath": false,
+  "Id": null,
+  "Tags": ["Retro", "Interactive", "Music"],
+  "Version": 7
+}

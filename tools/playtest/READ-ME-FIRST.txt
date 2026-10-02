@@ -1,0 +1,51 @@
+RETROSIGNAL MANAGER - PRIVATE WINDOWS PLAYTEST
+Version 1.0.0-rc.5-manager.1
+
+1. Extract the entire ZIP to a folder you can write to. Do not run inside the ZIP.
+2. Double-click Setup.cmd. It creates a RetroSignal Playtest Desktop shortcut
+   and opens the app. No administrator rights or installer are required.
+3. Choose a folder containing your own authorized ROMs and any required BIOS.
+4. Click Import games. Subfolders are scanned; duplicate files are skipped.
+5. Click Open emulator player and select a system and game.
+
+All 20 configured release core binaries are included. Electron/Node and the
+local emulator frontend are included; no separate Node or emulator installation
+is needed. Lively is optional and is not required for standalone play.
+
+The unfinished garden is not included. No games, BIOS, user saves or settings
+are included. Some systems require the user to supply BIOS before a game works.
+
+Use the RetroSignal Playtest Desktop shortcut or Start-RetroSignal.cmd.
+Keep the extracted folder in place; run Setup.cmd again if you move it.
+Its TestData folder keeps
+the test library, imported copies, settings, Chromium data and saves separate
+from any normal RetroSignal installation. Keep TestData if you want to retain
+your playtest progress. Do not send your populated TestData folder to others.
+
+This is a Windows x64 unpacked test build, not an installer. Keep the App folder
+and its contents together. Windows archive imports use the system tar utility;
+ZIP and 7z behavior should be tested on the tester's Windows version.
+
+QUICK TEST CHECKLIST
+[ ] App opens and there is no Garden tab.
+[ ] Import a game folder; check the expected system lists and duplicate handling.
+[ ] Open a system's controller diagram; assign a key and Save keyboard mapping.
+[ ] Switch systems, close/reopen the app and confirm the mapping persists.
+[ ] Change appearance/display settings and confirm they persist.
+[ ] Open the standalone player, select a game, test keyboard input and audio.
+[ ] Test a physical controller if available; note system/controller model.
+[ ] Save in a game, exit/reopen it and check the save.
+[ ] Close the player; Manager should remain usable. Close Manager when finished.
+
+Report the Windows version, app version, system, game format, what you did,
+expected/actual behavior and a screenshot. Do not include ROMs, BIOS or saves
+in a bug report unless independently authorized.
+
+Automated checks cover startup, all 21 diagrams, supported mapping persistence,
+preferences, generated import-only fixture/deduplication, standalone selector,
+live display changes and player exit. They do not establish actual ROM/core
+gameplay, BIOS behavior, physical-controller compatibility, in-game saving,
+installed Lively, installer or clean-machine acceptance.
+
+Existing third-party notices and licenses are included unchanged. No additional
+distribution/legal-clearance claim is made by this private playtest package.

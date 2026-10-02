@@ -1,0 +1,28 @@
+-------------------------------------------
+Virtual Jaguar v2.1.0 GCC/Qt release README
+-------------------------------------------
+
+--------------
+- DISCLAIMER -
+--------------
+
+Or, "O liability, I do disclaim thee!"
+
+Ported by SDLEMU (Niels Wagenaar & Carwin Jones) and is based upon the
+original work by David Raingeard of Potato Emulation. For requirements please
+consult the INSTALL file for more information about supported OS's and
+software requirements.
+
+The use of this software is entirely at your own risk. While it won't rape
+your dog, it might do other nasty things. We can't be held responsible for
+damage done to your hardware and/or software. You may only use the ROM images
+if you own the cartridges itself. The use of commercial ROMs without owning the
+original cartridge is illegal in most countries and could result in fines
+and/or legal actions.
+
+The products, trademarks and/or brands used in these documents and/or
+sourcecode are owned by their respective companies and/or successors in
+interest.
+
+This software is released under the GPL v3 or later. For more information, read
+the GPLv3 file.
