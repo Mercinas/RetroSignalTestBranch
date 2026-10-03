@@ -29,6 +29,7 @@ export function initializeSystemPanel(document) {
     if(active===entry){dismiss();return;}
     dismiss(false);active=entry;heading.textContent=entry.button.querySelector('span').textContent+' · Controller mapping';
     entry.details.hidden=false;panel.append(entry.details);entry.button.setAttribute('aria-expanded','true');panel.hidden=false;position();remember();
+    entry.details.dispatchEvent(new Event('controller-panel-open',{bubbles:true}));
     if(focus){close.focus({preventScroll:true});panel.scrollIntoView({block:'nearest',behavior:'instant'});}
   }
   for(const entry of entries){

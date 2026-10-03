@@ -1,3 +1,4 @@
+import { getLayeredN64Art } from './art-n64-layered.js';
 // Original hardware-inspired, unbranded vector drawings. Coordinates are not CAD dimensions.
 // See docs/controller-references-nintendo.md. Physical footprints stay separate from hit targets.
 const text = (x, y, value, size = 10, fill = '#343945') => `<text x="${x}" y="${y}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${size}" font-weight="700" fill="${fill}">${value}</text>`;
@@ -5,7 +6,7 @@ const rect = (x, y, w, h, r, fill, stroke = '#343945', sw = 2) => `<rect x="${x}
 const circle = (x, y, r, fill, stroke = '#343945', sw = 2) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
 const footprint = (x, y, width, height = width) => ({ x, y, width, height });
 function roundButton(x, y, r, fill, label, labelFill = '#f4f5fa') {
-  return circle(x, y, r + 3, '#777b85', '#555963', 1) + circle(x, y, r, fill, '#353843', 1.5) + `<path d="M${x-r*.55} ${y-r*.5} Q${x} ${y-r*.85} ${x+r*.55} ${y-r*.5}" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>` + (label ? text(x, y + 4, label, Math.max(9, r * .7), labelFill) : '');
+  return circle(x, y + .7, r + 1.7, '#585b60', '#929499', .7) + circle(x, y, r, fill, '#353843', .65) + (label ? text(x, y + 4, label, Math.max(9, r * .7), labelFill) : '');
 }
 function dpad(x, y, s = 1, ids = [4, 5, 6, 7]) {
   const controls = Object.fromEntries([[ids[0], x, y - 20*s], [ids[1], x, y + 20*s], [ids[2], x - 20*s, y], [ids[3], x + 20*s, y]].map(([id,cx,cy]) => [id, footprint(cx, cy, 19*s, 19*s)]));
@@ -22,14 +23,18 @@ function nes() {
     rect(381,184,54,55,2,'#d7d5cb','none',0) + rect(455,184,54,55,2,'#d7d5cb','none',0) + roundButton(408,211,21,'#b7252a','') + roundButton(482,211,21,'#b7252a','') + text(431,258,'B',15,'#cc3736') + text(505,258,'A',15,'#cc3736') + p.body };
 }
 function snes() {
-  const p = dpad(149,177,1.15);
-  const controls = { ...p.controls, 2:footprint(269,192,31,15), 3:footprint(322,192,31,15), 9:footprint(456,135,34), 1:footprint(414,174,34), 8:footprint(496,174,34), 0:footprint(456,212,34), 10:footprint(136,75,102,23), 11:footprint(462,75,102,23) };
+  const p = dpad(149,184,1.05);
+  const controls = { ...p.controls, 2:footprint(269,200,31,15), 3:footprint(322,200,31,15), 9:footprint(456,146,34), 1:footprint(417,184,34), 8:footprint(495,184,34), 0:footprint(456,222,34), 10:footprint(142,79,93,12), 11:footprint(456,79,93,12) };
   return { name:'Super NES · European / Japanese four-colour controller', controls, body:
-    `<path d="M300 86V23" stroke="#34363b" stroke-width="8"/>` + rect(87,67,102,31,15,'#a4a4a7') + rect(410,67,102,31,15,'#a4a4a7') +
-    `<path d="M143 84C79 82 42 118 42 176C42 242 78 277 140 277C177 277 210 252 240 246H361C391 252 420 277 456 277C519 277 557 241 557 178C557 119 522 84 457 84Z" fill="#cccbcb" stroke="#41454c" stroke-width="3"/>` +
-    `<path d="M150 99C97 99 60 130 60 176C60 224 92 256 139 258" fill="none" stroke="#eeeded" stroke-width="4"/>` + circle(456,174,79,'#b7b6b8','#aaa9ac',2) + p.body +
-    `<g transform="rotate(-29 269 192)">${rect(254,185,30,14,7,'#4f5157')}</g><g transform="rotate(-29 322 192)">${rect(307,185,30,14,7,'#4f5157')}</g>` + text(263,218,'SELECT',9) + text(321,218,'START',9) + text(136,81,'L',11) + text(462,81,'R',11) +
-    roundButton(456,135,17,'#2b5da1','X') + roundButton(414,174,17,'#3d8c4f','Y') + roundButton(496,174,17,'#c0383d','A') + roundButton(456,212,17,'#d8aa31','B','#433d2d') };
+    `<path d="M300 90V23" stroke="#34363b" stroke-width="7"/>
+    <path d="M88 101Q104 68 148 72L197 78V95ZM402 95V78L451 72Q496 68 513 101Z" fill="#aaa9a9" stroke="#696a6a" stroke-width=".8"/>
+    <path d="M145 81C82 80 43 123 43 183C43 248 82 292 143 292C180 292 212 262 243 258H357C388 262 420 292 457 292C518 292 557 248 557 183C557 123 518 80 455 81Z" fill="#99999b" stroke="#65666a" stroke-width=".9"/>
+    <path d="M145 79C84 78 46 121 46 179C46 240 83 284 143 284C180 284 212 254 243 250H357C388 254 420 284 457 284C517 284 554 240 554 179C554 121 516 78 455 79Z" fill="#c9c8c7" stroke="#e0dfdc" stroke-width=".65"/>
+    <path d="M148 87C90 86 54 125 54 180C54 235 87 275 143 276" fill="none" stroke="#eeeae2" stroke-opacity=".4" stroke-width=".7"/>` +
+    circle(456,184,79,'#a1a0a2','#88888d',.7) + circle(456,184,77.5,'#adacaf','#c0bfc1',.65) + circle(149,184,46,'#b5b4b5','#c3c2c1',.7) + p.body +
+    `<g transform="rotate(-29 269 200)">${rect(253,192,32,16,8,'#8b8b8d','#aaa9ab',.6)}${rect(254,193,30,13,6.5,'#515156','#33343a',.6)}</g><g transform="rotate(-29 322 200)">${rect(306,192,32,16,8,'#8b8b8d','#aaa9ab',.6)}${rect(307,193,30,13,6.5,'#515156','#33343a',.6)}</g>` + text(263,224,'SELECT',8) + text(321,224,'START',8) +
+    roundButton(456,146,17,'#285999','') + roundButton(417,184,17,'#348547','') + roundButton(495,184,17,'#b83336','') + roundButton(456,222,17,'#ceaa30','') +
+    text(456,120,'X',9,'#424247') + text(390,187,'Y',9,'#424247') + text(522,187,'A',9,'#424247') + text(456,250,'B',9,'#424247') };
 }
 function gb() {
   const p=dpad(247,210,.65);
@@ -76,5 +81,14 @@ function virtualboy() {
 }
 const builders={nes,snes,n64,gb,gba,virtualboy};
 export function getNintendoArt(layout) {
-  return builders[typeof layout === 'string' ? layout : layout?.systemId]?.() ?? null;
+  const id=typeof layout === 'string' ? layout : layout?.systemId;
+  if(id==='n64')return getLayeredN64Art();
+  const art=builders[id]?.() ?? null;
+  if(id==='gb' && art){
+    // Original DMG shell is 90 mm wide by 148 mm tall.
+    const scale=(300*90/148)/175;
+    art.body=`<g transform="translate(300 0) scale(${scale} 1) translate(-300 0)">${art.body}</g>`;
+    for(const control of Object.values(art.controls)){control.x=300+(control.x-300)*scale;control.width*=scale;}
+  }
+  return art;
 }

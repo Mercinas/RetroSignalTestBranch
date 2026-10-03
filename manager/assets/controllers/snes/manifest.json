@@ -1,0 +1,96 @@
+{
+  "model": "snes",
+  "name": "Super NES European / Japanese four-color controller",
+  "resolution": [
+    3072,
+    3072
+  ],
+  "layers": [
+    "layer-0.png",
+    "layer-1.png",
+    "layer-2.png",
+    "layer-3.png",
+    "layer-4.png",
+    "layer-5.png"
+  ],
+  "stage": {
+    "x": 0,
+    "y": -130,
+    "width": 600,
+    "height": 600
+  },
+  "controls": {
+    "0": {
+      "x": 456,
+      "y": 222,
+      "width": 34,
+      "height": 34
+    },
+    "1": {
+      "x": 417,
+      "y": 184,
+      "width": 34,
+      "height": 34
+    },
+    "2": {
+      "x": 269,
+      "y": 200,
+      "width": 31,
+      "height": 15
+    },
+    "3": {
+      "x": 322,
+      "y": 200,
+      "width": 31,
+      "height": 15
+    },
+    "4": {
+      "x": 149,
+      "y": 163,
+      "width": 19.95,
+      "height": 19.95
+    },
+    "5": {
+      "x": 149,
+      "y": 205,
+      "width": 19.95,
+      "height": 19.95
+    },
+    "6": {
+      "x": 128,
+      "y": 184,
+      "width": 19.95,
+      "height": 19.95
+    },
+    "7": {
+      "x": 170,
+      "y": 184,
+      "width": 19.95,
+      "height": 19.95
+    },
+    "8": {
+      "x": 495,
+      "y": 184,
+      "width": 34,
+      "height": 34
+    },
+    "9": {
+      "x": 456,
+      "y": 146,
+      "width": 34,
+      "height": 34
+    },
+    "10": {
+      "x": 142,
+      "y": 79,
+      "width": 93,
+      "height": 12
+    },
+    "11": {
+      "x": 456,
+      "y": 79,
+      "width": 93,
+      "height": 12
+    }
+  }
+}

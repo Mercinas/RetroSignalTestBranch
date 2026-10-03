@@ -46,13 +46,18 @@ function megaDrive(three) {
     ${!three ? `${round(369,153,17,'X','#737984')}${round(419,132,17,'Y','#737984')}${round(470,127,17,'Z','#737984')}` : ''}`};
 }
 function saturn(analog) {
-  if(analog) return {name:'Saturn 3D Control Pad — schematic, device routing unverified',controls:{...directions(171,244,23,19),19:footprint(165,119,20),18:footprint(165,161,20),17:footprint(144,140,20),16:footprint(186,140,20),3:footprint(287,221,30,17),1:footprint(378,211,40),0:footprint(425,193,40),8:footprint(472,177,40),9:footprint(366,158,30),10:footprint(412,142,30),11:footprint(459,128,30),12:footprint(145,45,50,18),13:footprint(459,45,50,18)},body:`
-    ${edgeCallout(145,45,50,'L')}${edgeCallout(459,45,50,'R')}
-    <path d="M147 91 C198 69 245 79 301 88 C357 78 417 72 463 100 C512 131 538 195 520 257 C510 297 485 316 458 299 L391 269 C328 296 257 297 210 271 L143 306 C110 314 83 287 79 249 C74 184 94 123 147 91Z" fill="#30363e" stroke="#76808c" stroke-width="2"/>
-    <circle cx="165" cy="140" r="50" fill="#13171d" stroke="#596576"/><circle cx="165" cy="140" r="32" fill="#626c78" stroke="#b4bfcc"/><circle cx="165" cy="140" r="22" fill="#464e59"/>
-    ${directional(171,244,35)}${pill(287,221,30,17,'START')}
-    ${round(378,211,20,'A')}${round(425,193,20,'B')}${round(472,177,20,'C')}${round(366,158,15,'X')}${round(412,142,15,'Y')}${round(459,128,15,'Z')}
-    ${label(301,315,'3D PAD · SCHEMATIC',9,'#b9c7d8')}`};
+  if(analog) return {name:'Saturn 3D Control Pad (analog device required)',controls:{...directions(218,211,20,18),19:footprint(213,100,19),18:footprint(213,138,19),17:footprint(194,119,19),16:footprint(232,119,19),3:footprint(287,262,29,29),1:footprint(337,212,29),0:footprint(375,198,29),8:footprint(413,186,29),9:footprint(335,166,27),10:footprint(371,153,27),11:footprint(407,141,27),12:footprint(95,65,50,18),13:footprint(505,65,50,18)},body:`
+    ${edgeCallout(95,65,50,'L')}${edgeCallout(505,65,50,'R')}
+    <path d="M300 37V13" stroke="#171b20" stroke-width="9"/>
+    <path d="M155 186Q155 59 258 37Q300 24 346 37Q449 59 451 186L438 309Q423 326 393 315L377 283H228L212 315Q182 326 167 309Z" fill="#191e24" stroke="#10151b" stroke-width="2"/>
+    <path d="M155 180C153 96 214 33 300 33C386 33 447 96 447 180C447 257 389 301 300 305C211 301 155 257 155 180Z" fill="#30363e" stroke="#747b85" stroke-width="2"/>
+    <path d="M166 171C166 94 223 43 300 43C355 43 404 68 425 110" fill="none" stroke="#747c85" stroke-opacity=".6" stroke-width="2"/>
+    <circle cx="213" cy="119" r="44" fill="#10151b" stroke="#6b7480"/><circle cx="213" cy="119" r="35" fill="#222831" stroke="#0c1116"/><circle cx="213" cy="119" r="25" fill="#4a515c" stroke="#818894"/>
+    <circle cx="213" cy="119" r="19" fill="none" stroke="#222933"/><circle cx="213" cy="119" r="12" fill="none" stroke="#222933"/>
+    ${directional(218,211,32)}${round(287,262,14.5,'')}${label(287,242,'START',7)}
+    ${round(337,212,14.5,'A')}${round(375,198,14.5,'B')}${round(413,186,14.5,'C')}${round(335,166,13.5,'X')}${round(371,153,13.5,'Y')}${round(407,141,13.5,'Z')}
+    <rect x="269" y="285" width="38" height="12" rx="6" fill="#11161d" stroke="#59636e"/><rect x="279" y="285" width="15" height="12" rx="5" fill="#646d77"/>
+    ${label(305,85,'3D CONTROL PAD',8,'#abb2bc')}`};
   return {name:'Saturn original Control Pad — North American Model 2',controls:{...directions(155,172,31,24),3:footprint(280,219,39,19),1:footprint(369,223,45),0:footprint(426,203,45),8:footprint(482,185,45),9:footprint(362,159,34),10:footprint(415,140,34),11:footprint(465,128,34),12:footprint(145,39,51,18),13:footprint(452,39,51,18)},body:`
     ${edgeCallout(145,39,51,'L')}${edgeCallout(452,39,51,'R')}
     <path d="M300 91 V28" stroke="#14171c" stroke-width="10"/>
@@ -65,7 +70,7 @@ function gameGear() {
   return {name:'Game Gear original black handheld',controls:{...directions(113,152,24,20),0:footprint(471,204,35),8:footprint(511,172,35),3:footprint(469,109,24,37)},body:`
     <path d="M70 40 Q299 27 530 40 Q551 40 555 66 L560 258 Q559 297 524 304 Q300 318 74 304 Q43 299 40 265 L45 67 Q47 43 70 40Z" fill="#292e35" stroke="#7c838b" stroke-width="2"/>
     <path d="M144 44 Q300 33 455 44 L434 217 Q431 254 399 264 H203 Q169 258 164 225Z" fill="#11161c" stroke="#67717c" stroke-width="2"/>
-    <path d="M213 68 H393 L409 238 H195Z" fill="#535b65" stroke="#838c97" stroke-width="2"/><path d="M224 82 H383 L393 225 H210Z" fill="#242f3a" stroke="#171e28" stroke-width="3"/><path d="M228 86 H379 L212 219Z" fill="#738291" opacity=".08"/>
+    <rect x="195" y="68" width="214" height="170" rx="6" fill="#535b65" stroke="#838c97" stroke-width="2"/><rect x="209" y="82" width="186" height="143" rx="2" fill="#242f3a" stroke="#171e28" stroke-width="3"/><path d="M214 87H389L214 216Z" fill="#738291" opacity=".08"/>
     ${directional(113,152,36)}
     <circle cx="184" cy="104" r="4" fill="#b63b41"/>${label(183,121,'POWER',7)}
     <path d="M464 90 Q486 100 478 120 Q473 129 458 125Z" fill="#376dc2" stroke="#85a9e1"/>

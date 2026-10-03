@@ -11,6 +11,7 @@ import { renderManagerPage } from "./page.js";
 import { normalizePlayerSettings } from "./player-settings.mjs";
 import { normalizeKeyboardBindings } from "./keyboard-bindings.mjs";
 import { getLayout } from "./controller-layouts/layouts.js";
+import { CONTROLLER_ASSET_FILES } from "./controller-layouts/art-layered.js";
 
 const DEFAULT_PORT = 41237;
 const MAX_REQUEST_BYTES = 48 * 1024 * 1024;
@@ -578,12 +579,22 @@ export function createManager(options = {}) {
       return;
     }
 
-    if (request.method === "GET" && ['binding-state.js', 'component.js', 'layouts.js', 'illustrations.js', 'art-nintendo.js', 'art-sega.js', 'art-other.js', 'system-panel.js', 'controller-layouts.css', 'integration.js'].some(file => url.pathname === `/controller-layouts/${file}`)) {
+    if (request.method === "GET" && ['binding-state.js', 'component.js', 'layouts.js', 'illustrations.js', 'materials.js', 'art-nintendo.js', 'art-n64-layered.js', 'art-layered.js', 'art-sega.js', 'art-other.js', 'system-panel.js', 'controller-layouts.css', 'integration.js'].some(file => url.pathname === `/controller-layouts/${file}`)) {
       try {
         const bytes = await readFile(url.pathname.endsWith("/integration.js") ? join(PROJECT_ROOT, "manager", "controller-mapper-integration.js") : join(PROJECT_ROOT, "manager", "controller-layouts", basename(url.pathname)));
         response.writeHead(200, { "Content-Type": url.pathname.endsWith('.css') ? 'text/css; charset=utf-8' : 'text/javascript; charset=utf-8', "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" });
         response.end(bytes);
       } catch { json(response, 404, { error: "asset-not-found" }); }
+      return;
+    }
+
+    if (request.method === 'GET' && (CONTROLLER_ASSET_FILES.has(url.pathname) || /^\/controller-assets\/n64\/(shadow|shell|cable|recesses|buttons|stick|markings)\.png$/.test(url.pathname))) {
+      try {
+        const model = url.pathname.split('/')[2];
+        const bytes = await readFile(join(PROJECT_ROOT, 'manager', 'assets', 'controllers', model, basename(url.pathname)));
+        response.writeHead(200, { 'Content-Type':'image/png', 'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff' });
+        response.end(bytes);
+      } catch { json(response, 404, { error:'asset-not-found' }); }
       return;
     }
 

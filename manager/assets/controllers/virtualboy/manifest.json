@@ -1,0 +1,109 @@
+{
+  "model": "virtualboy",
+  "name": "Virtual Boy original twin D-pad controller",
+  "resolution": [
+    3072,
+    3072
+  ],
+  "layers": [
+    "layer-0.png",
+    "layer-1.png",
+    "layer-2.png",
+    "layer-3.png",
+    "layer-4.png",
+    "layer-5.png"
+  ],
+  "stage": {
+    "x": 0,
+    "y": -130,
+    "width": 600,
+    "height": 600
+  },
+  "controls": {
+    "0": {
+      "x": 347,
+      "y": 128,
+      "width": 25,
+      "height": 25
+    },
+    "2": {
+      "x": 223,
+      "y": 113,
+      "width": 24,
+      "height": 24
+    },
+    "3": {
+      "x": 253,
+      "y": 129,
+      "width": 24,
+      "height": 24
+    },
+    "4": {
+      "x": 175,
+      "y": 73.6,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "5": {
+      "x": 175,
+      "y": 108.4,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "6": {
+      "x": 157.6,
+      "y": 91,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "7": {
+      "x": 192.4,
+      "y": 91,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "8": {
+      "x": 377,
+      "y": 112,
+      "width": 25,
+      "height": 25
+    },
+    "10": {
+      "x": 275,
+      "y": 303,
+      "width": 37,
+      "height": 20
+    },
+    "11": {
+      "x": 328,
+      "y": 303,
+      "width": 37,
+      "height": 20
+    },
+    "16": {
+      "x": 442.4,
+      "y": 91,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "17": {
+      "x": 407.6,
+      "y": 91,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "18": {
+      "x": 425,
+      "y": 108.4,
+      "width": 16.53,
+      "height": 16.53
+    },
+    "19": {
+      "x": 425,
+      "y": 73.6,
+      "width": 16.53,
+      "height": 16.53
+    }
+  },
+  "callout": "virtualboy-rear"
+}

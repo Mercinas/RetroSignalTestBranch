@@ -1,0 +1,79 @@
+{
+  "model": "genesis3",
+  "name": "Genesis / Mega Drive three-button pad",
+  "resolution": [
+    2048,
+    1161
+  ],
+  "layers": [
+    "layer-0.png",
+    "layer-1.png",
+    "layer-2.png",
+    "layer-3.png",
+    "layer-4.png",
+    "layer-5.png",
+    "layer-6.png"
+  ],
+  "stage": {
+    "x": 0,
+    "y": 0,
+    "width": 600,
+    "height": 340
+  },
+  "controls": {
+    "0": {
+      "x": 415.9999966621399,
+      "y": 173.99838864803314,
+      "width": 45,
+      "height": 45
+    },
+    "1": {
+      "x": 360.00001430511475,
+      "y": 198.9883404970169,
+      "width": 45,
+      "height": 45
+    },
+    "3": {
+      "x": 357.0000171661377,
+      "y": 120.02009630203247,
+      "width": 43,
+      "height": 17
+    },
+    "4": {
+      "x": 165.0000035762787,
+      "y": 141.6614043712616,
+      "width": 25,
+      "height": 25
+    },
+    "5": {
+      "x": 165.0000035762787,
+      "y": 192.3410177230835,
+      "width": 25,
+      "height": 25
+    },
+    "6": {
+      "x": 139.64999914169312,
+      "y": 167.00120091438293,
+      "width": 25,
+      "height": 25
+    },
+    "7": {
+      "x": 190.35000801086426,
+      "y": 167.00120091438293,
+      "width": 25,
+      "height": 25
+    },
+    "8": {
+      "x": 473.0000138282776,
+      "y": 151.00764632225037,
+      "width": 45,
+      "height": 45
+    }
+  },
+  "callouts": [],
+  "keys": [
+    "genesis/three-button",
+    "segacd/three-button",
+    "sega32x/three-button"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "model": "philips-cdi-22er9051",
+  "name": "Philips CD-i 22ER9051 remote",
+  "resolution": [
+    3072,
+    1741
+  ],
+  "layers": [
+    "layer-0.png",
+    "layer-1.png",
+    "layer-2.png",
+    "layer-3.png",
+    "layer-4.png",
+    "layer-5.png",
+    "layer-6.png"
+  ],
+  "stage": {
+    "x": 0,
+    "y": 0,
+    "width": 600,
+    "height": 340
+  },
+  "controls": {},
+  "callouts": [],
+  "keys": [
+    "cdi/standard"
+  ]
+}

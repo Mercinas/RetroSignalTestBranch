@@ -107,6 +107,32 @@ test("component retains selected-control and keyboard focus across selection and
   find("key-j").focus(); api.hydrate([]); assert.equal(doc.activeElement.dataset.focusId, "key-j"); assert.equal(doc.activeElement.isConnected, true);
   api.destroy();
 });
+
+test('duplicate physical fire buttons select and highlight the same saved binding', () => {
+  for (const systemId of ['lynx', 'atari5200']) {
+    const h=mockMapper({systemId});
+    h.find('diagram-8-alias-0').dispatch('click');
+    h.find('key-.').dispatch('click');
+    assert.equal(h.api.getBindings()[8], '.');
+    h.events.dispatch('keydown', {key:'.'});
+    assert.ok(h.find('diagram-8').classList.contains('cl-held'));
+    assert.ok(h.find('diagram-8-alias-0').classList.contains('cl-held'));
+    assert.equal(h.api.getBindings()[24], '1');
+    h.api.destroy();
+  }
+});
+
+test('a collision with an advanced binding reveals its individual clear action', () => {
+  const h=mockMapper(), advanced=h.api.element.querySelectorAll('details')[0];
+  assert.ok(!advanced.open);
+  h.find('control-8').dispatch('click');h.find('key-j').dispatch('click');
+  assert.equal(advanced.open,true);
+  h.find('preserved-21').dispatch('click');
+  assert.equal(advanced.open,true);
+  assert.equal(h.api.getBindings()[21],'');
+  assert.equal(h.api.getBindings()[23],'i');
+  h.api.destroy();
+});
 test("hidden default collision offers a visible clear action; reassignment preserves other slots", () => {
   const { api, changes, find } = mockMapper(); find("control-8").dispatch("click");
   find("key-j").dispatch("click"); assert.equal(changes.length, 0); assert.equal(api.getBindings()[21], "j");

@@ -1,7 +1,7 @@
 {
   "name": "retrosignal-wallpaper",
-  "version": "1.0.0-rc.5",
-  "description": "RetroSignal Manager and optional Lively wallpaper playtest.",
+  "version": "1.0.0-rc.5-controller.2",
+  "description": "RetroSignal Manager controller friend test.",
   "author": "RetroSignal contributors",
   "private": true,
   "type": "module",

@@ -1,0 +1,80 @@
+{
+  "model": "mastersystem",
+  "name": "Sega Master System control pad",
+  "resolution": [
+    2048,
+    1161
+  ],
+  "layers": [
+    "layer-0.png",
+    "layer-1.png",
+    "layer-2.png",
+    "layer-3.png",
+    "layer-4.png",
+    "layer-5.png",
+    "layer-6.png"
+  ],
+  "stage": {
+    "x": 0,
+    "y": 0,
+    "width": 600,
+    "height": 340
+  },
+  "controls": {
+    "0": {
+      "x": 368.0000066757202,
+      "y": 202.98673927783966,
+      "width": 46,
+      "height": 46
+    },
+    "2": {
+      "x": 546,
+      "y": 306,
+      "width": 48,
+      "height": 18
+    },
+    "4": {
+      "x": 153.99999618530273,
+      "y": 148.0088472366333,
+      "width": 24,
+      "height": 24
+    },
+    "5": {
+      "x": 153.99999618530273,
+      "y": 199.9879401922226,
+      "width": 24,
+      "height": 24
+    },
+    "6": {
+      "x": 128.00000309944153,
+      "y": 173.99838864803314,
+      "width": 24,
+      "height": 24
+    },
+    "7": {
+      "x": 180.00000715255737,
+      "y": 173.99838864803314,
+      "width": 24,
+      "height": 24
+    },
+    "8": {
+      "x": 458.99999141693115,
+      "y": 202.98673927783966,
+      "width": 46,
+      "height": 46
+    }
+  },
+  "callouts": [
+    {
+      "id": "2",
+      "label": "Pause (console)",
+      "x": 546,
+      "y": 306,
+      "width": 48,
+      "height": 18
+    }
+  ],
+  "keys": [
+    "mastersystem/standard"
+  ]
+}

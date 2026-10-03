@@ -9,7 +9,7 @@ const path = (d,fill=ink,stroke="#55585c") => `<path d="${d}" fill="${fill}" str
 const region = (x,y,width=26,height=width) => ({x,y,width,height});
 const directions = (x,y,gap=23,size=23) => ({4:region(x,y-gap,size),5:region(x,y+gap,size),6:region(x-gap,y,size),7:region(x+gap,y,size)});
 const cross = (x,y,size=70) => { const a=size/2,b=size/6; return path(`M${x-b} ${y-a}H${x+b}V${y-b}H${x+a}V${y+b}H${x+b}V${y+a}H${x-b}V${y+b}H${x-a}V${y-b}H${x-b}Z`,"#222529","#08090b")+circle(x,y,b*.58,"#272a2e","#36393d"); };
-const button = (x,y,label,r=17,fill="#34373c",labelColor="#eee") => circle(x,y,r,fill,"#101216")+text(x,y+4,label,12,labelColor);
+const button = (x,y,label,r=17,fill="#34373c",labelColor="#eee") => circle(x,y+1,r+2,"#16191e","#636973")+circle(x,y,r,fill,"#101216")+`<path d="M${x-r*.65} ${y-r*.5}Q${x} ${y-r*.95} ${x+r*.65} ${y-r*.5}" fill="none" stroke="#ffffff" stroke-opacity=".2" stroke-width="1.2"/>`+text(x,y+4,label,12,labelColor);
 const cable = (x,y) => path(`M${x} ${y}V20`,"none","#23262a");
 const keypad = (x,y,w=30,h=18,gap=7) => Array.from({length:12},(_,i)=>{const cx=x+(i%3)*(w+gap),cy=y+Math.floor(i/3)*(h+gap);return rect(cx,cy,w,h,3,"#45464b","#202226")+text(cx+w/2,cy+h*.73,["1","2","3","4","5","6","7","8","9","*","0","#"][i],10);}).join("");
 const switchPanel = (labels,x=395,y=105,w=155) => rect(x,y,w,labels.length*46+34,9,"#24292f","#555f6a")+text(x+w/2,y+19,"CONSOLE SWITCHES",10)+labels.map(([label,cy])=>rect(x+14,cy-10,23,20,3,"#838a8f","#111")+rect(x+20,cy-6,11,12,2,"#c3c6c6","#ddd")+text(x+95,cy+4,label,11)).join("");
@@ -35,6 +35,8 @@ function cx24(){
 }
 function cx52(){
   const controls={...directions(300,110,22,23),8:region(224,146,17,39),0:region(224,197,17,39),3:region(260,175,29,16)};
+  controls[8].aliases=[region(376,146,17,39)];
+  controls[0].aliases=[region(376,197,17,39)];
   const body=cable(300,36)+path("M251 35Q300 25 349 35L373 89L363 279Q361 308 335 315H265Q239 308 237 279L227 89Z","#232529","#08090b")+
     path("M249 48H351L359 286Q300 304 241 286Z","#36383e","#585a60")+
     rect(216,127,15,39,4,"#bb3632","#591817")+rect(216,178,15,39,4,"#bb3632","#591817")+rect(369,127,15,39,4,"#bb3632","#591817")+rect(369,178,15,39,4,"#bb3632","#591817")+
@@ -62,13 +64,19 @@ function jaguar(){
 }
 function playstation(analog){
   const controls={...directions(147,142,28,26),0:region(454,183,34),8:region(492,145,34),1:region(416,145,34),9:region(454,107,34),2:region(273,153,29,12),3:region(327,153,26,22),10:region(145,63,63,18),11:region(455,63,63,18),12:region(145,31,59,16),13:region(455,31,59,16)};
+  const shell=analog
+    ? "M111 70Q79 82 73 132L48 251Q40 282 66 299Q94 314 114 285L170 220Q185 208 190 226Q204 268 246 259L276 242H324L354 259Q396 268 410 226Q415 208 430 220L486 285Q506 314 534 299Q560 282 552 251L527 132Q521 82 489 70Q451 55 415 76H185Q149 55 111 70Z"
+    : "M111 70Q79 82 73 132L51 260Q48 283 70 292Q93 302 109 280L168 213Q180 202 202 208L241 220H359L398 208Q420 202 432 213L491 280Q507 302 530 292Q552 283 549 260L527 132Q521 82 489 70Q451 55 415 76H185Q149 55 111 70Z";
   let body=rect(114,22,62,18,6,"#85858c","#4c4d53")+text(145,35,"L2",10,"#202128")+rect(424,22,62,18,6,"#85858c","#4c4d53")+text(455,35,"R2",10,"#202128")+
     text(300,34,"REAR SHOULDERS",9)+path("M113 60H176V75H113ZM424 60H487V75H424Z","#777880","#4c4d53")+
-    path("M111 70Q79 82 73 132L51 260Q48 283 70 292Q93 302 109 280L168 213Q180 202 202 208L241 220H359L398 208Q420 202 432 213L491 280Q507 302 530 292Q552 283 549 260L527 132Q521 82 489 70Q451 55 415 76H185Q149 55 111 70Z","#bebfc5","#747680")+
+    path(shell,"#bebfc5","#747680")+
+    path("M85 135Q88 91 120 83M84 158L63 258Q60 276 74 282M517 157L538 258Q541 276 527 282","none","#e1e2e6")+
     circle(147,142,65,"#b3b4bc","#a0a1a8")+circle(454,145,65,"#b3b4bc","#a0a1a8")+
     // Four separated direction pieces are characteristic of the original Sony pad.
-    path("M135 103H159V126L147 135L135 126ZM135 159L147 150L159 159V182H135ZM108 130H131L140 142L131 154H108ZM163 130H186V154H163L154 142Z","#44454d","#25262d")+
-    button(454,183,"×",17,"#41434b","#79a4db")+button(492,145,"○",17,"#41434b","#ef7991")+button(416,145,"□",17,"#41434b","#db94b9")+button(454,107,"△",17,"#41434b","#83bea9")+
+    path("M139 107H155Q159 107 159 112V123Q158 128 151 132Q147 135 143 132Q136 128 135 123V112Q135 107 139 107ZM143 153Q147 150 151 153Q158 157 159 162V173Q159 178 155 178H139Q135 178 135 173V162Q136 157 143 153ZM112 134H123Q128 135 132 142Q135 146 132 150Q128 157 123 158H112Q107 158 107 154V138Q107 134 112 134ZM162 142Q166 135 171 134H182Q187 134 187 138V154Q187 158 182 158H171Q166 157 162 150Q159 146 162 142Z","#44454d","#25262d")+
+    button(454,183,"",17,"#41434b")+button(492,145,"",17,"#41434b")+button(416,145,"",17,"#41434b")+button(454,107,"",17,"#41434b")+
+    '<path d="M447 176L461 190M461 176L447 190" fill="none" stroke="#79a4db" stroke-width="1.8"/>'+circle(492,145,9,"none","#ef7991")+
+    '<rect x="408" y="137" width="16" height="16" fill="none" stroke="#db94b9" stroke-width="1.8"/><path d="M454 97L464 115H444Z" fill="none" stroke="#83bea9" stroke-width="1.8"/>'+
     rect(259,147,29,12,2,"#51525a","#292a32")+path("M316 142L339 153L316 164Z","#51525a","#292a32")+text(273,139,"SELECT",8,"#52535c")+text(327,139,"START",8,"#52535c")+text(145,70,"L1",9,"#25262b")+text(455,70,"R1",9,"#25262b");
   if(analog){
     for(const [x,start,click] of [[232,16,14],[368,20,15]]){
@@ -81,6 +89,8 @@ function playstation(analog){
 }
 function lynx(){
   const controls={...directions(112,174,21,22),8:region(504,87,27),0:region(461,98,27),3:region(427,173,15,27),10:region(425,137,15,27),11:region(425,210,15,27)};
+  controls[8].aliases=[region(504,263,27)];
+  controls[0].aliases=[region(461,252,27)];
   const shell="M74 57L153 57L187 64H413L447 57H526Q564 168 526 288H447L413 296H187L153 288H74Q36 173 74 57Z";
   const body=path(shell,"#373a3e","#111417")+
     path("M187 64H413Q456 175 413 296H187Q145 175 187 64Z","#292d31","#111417")+

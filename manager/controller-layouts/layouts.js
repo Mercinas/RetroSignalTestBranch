@@ -39,7 +39,7 @@ export const CONTROLLER_LAYOUTS = Object.freeze(Object.fromEntries(Object.entrie
   const variants = [variant("standard", systemId === "psx" ? "Digital pad" : "Standard controller", controls)];
   if (["genesis", "segacd", "sega32x"].includes(systemId)) variants.unshift(variant("three-button", "Three-button pad", controls.filter(c => ![2, 9, 10, 11].includes(c.inputIndex))));
   if (systemId === "psx") variants.push(variant("dual-analog", "Dual analog pad", [...controls, ...stick(210, 265), ...stick(390, 265, true, "Right stick"), control(14, "L3", 210, 265), control(15, "R3", 390, 265)], "analogDevice"));
-  if (systemId === "saturn") variants.push(variant("analog", "3D analog pad (schematic)", [...controls, ...stick(215, 260)], "analogDevice"));
+  if (systemId === "saturn") variants.push(variant("analog", "3D Control Pad", [...controls, ...stick(215, 260)], "analogDevice"));
   return [systemId, Object.freeze({ systemId, shape, note, coordinateSpace: [600, 340], variants })];
 })));
 export function getLayout(systemId, variantId) {
